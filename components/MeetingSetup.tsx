@@ -32,9 +32,9 @@ const MeetingSetup = ({
   }, [isMicCamToggledOn, call?.camera, call?.microphone]);
 
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-center gap-3 text-white scale-92-5">
+    <div className="flex h-screen w-full flex-col items-center justify-center gap-3 text-white">
       <h1 className="text-2xl font-bold">Get Ready for Your Meeting</h1>
-      <VideoPreview className="" />
+      <VideoPreview />
       <div className="flex h-16 items-center justify-center gap-3">
         <label className="flex items-center justify-center gap-2 font-medium">
           <input
@@ -42,7 +42,7 @@ const MeetingSetup = ({
             checked={isMicCamToggledOn}
             onChange={(e) => setIsMicCamToggledOn(e.target.checked)}
           />
-          Disable microphone and camera on join?
+          Join with microphone and camera off?
         </label>
         <DeviceSettings />
       </div>

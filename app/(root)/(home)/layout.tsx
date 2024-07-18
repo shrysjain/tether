@@ -1,6 +1,15 @@
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
+import { Metadata } from "next";
 import React, { ReactNode } from "react";
+
+export const metadata: Metadata = {
+  title: "Tether",
+  description: "An open-source premium video conferencing platform",
+  icons: {
+    icon: "/icons/logo.svg",
+  },
+};
 
 const HomeLayout = ({ children }: { children: ReactNode }) => {
   return (
