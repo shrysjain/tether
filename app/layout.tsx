@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster";
 import "@stream-io/video-react-sdk/dist/css/styles.css";
 import "react-datepicker/dist/react-datepicker.css";
+import { dark } from "@clerk/themes";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({ subsets: ["latin"], weight: "400", style: "normal" });
 
 export const metadata: Metadata = {
   title: "Tether",
@@ -25,8 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <ClerkProvider
         appearance={{
+          baseTheme: dark,
           layout: {
-            logoImageUrl: "icons/yoom-logo.svg",
+            logoImageUrl: "icons/tether-logo.svg",
             socialButtonsVariant: "iconButton",
           },
           variables: {
@@ -38,7 +40,7 @@ export default function RootLayout({
           },
         }}
       >
-        <body className={`${inter.className} bg-dark-2`}>
+        <body className={`${poppins.className} bg-dark-2`}>
           {children}
           <Toaster />
         </body>

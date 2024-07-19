@@ -57,14 +57,14 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
         setRecordings(recordings);
       } catch (error) {
         toast({
-          title: "Failed to fetch recordings",
+          title: "❌ Failed to fetch recordings",
           description: "Please try again later",
         });
       }
     };
 
     if (type === "recordings") fetchRecordings();
-  }, [type, callRecordings]);
+  }, [type, callRecordings, toast]);
 
   const calls = getCalls();
   const noCallsMessage = getNoCallsMessage();
@@ -85,9 +85,9 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
                 : "/icons/recordings.svg"
             }
             title={
-              (meeting as Call).state?.custom?.description.substring(0, 45) ||
-              meeting.filename.substring(0, 30) ||
-              "No Description Provided"
+              (meeting as Call).state?.custom?.description?.substring(0, 45) ||
+              meeting?.filename?.substring(0, 30) ||
+              "Personal Meeting Room"
             }
             date={
               meeting.state?.startsAt.toLocaleString() ||
